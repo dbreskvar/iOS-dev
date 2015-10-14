@@ -1,0 +1,16 @@
+1. Za kaj se uporabljajo naslednji frameworki: CloudKit, CoreTelephony, HomeKit, PassKit?
+
+Tole je guessing: CloudKit pomaga pri povezavi z cloud storage, CoreTelephony je povezan z uporabo telefonskih funkcij iz naprave, dostop do raznih stvari, ki so povezane s telefoniranjem v appu, HomeKit je pomoje povezan z delanjem kakih widgetov? Ne vem, ce iOS to ima, ker sem se bolj android user... Povezava z home screenom? PassKit pa bi rekel, da ima povezavo z password storage-i, mogoce kaka pomoc pri hashingu?
+
+Web Lookup:
+CloudKit - Kot sem uganil, gre za povezavo z iCloud sistemom - cloud storage. Public in private databases...
+CoreTelephony - Pridobivanje podatkov o uporabniku, katerega providerja uporablja, dostop do podatkov klica, itd.
+HomeKit - Dejansko gre za framework, ki ti omogoca upravljati dolocene stvari doma, kot so odpiranje raznih vrat, luci, oken, rulet,...
+PassKit - Ok tu sem falil, gre za pass as passport in ne password :) gre za shranjevanje potnih listov, raznih vrednostnih papirjev itd., ki jih lahko potem lazji direkt s telefonom/tablico uporabis.
+
+2. Kakšna je razlika med Simulator-jem in Emulatorjem?
+
+Emulator emulira android device na podlagi podatkov za telefon, Simulator pa simulira naprava glede na razpolozljiv GPU in RAM, tako da dela hitreje, kar pa ni dobro za testiranje procesov, ki imajo multithreading, ker jih racunalnik ponavadi izvede hitreje kot dejanska naprava.
+
+3. Zakaj se uporabljajo animacije?
+Tega uprasanja ne razumem? Animacije v appu? Za prehod med screeni? Za boljsi UX, za boljsi izgled, za animiranje?
