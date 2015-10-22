@@ -1,8 +1,14 @@
-//: Playground - noun: a place where people can play
+//
+//  Movie.swift
+//  My Cinema
+//
+//  Created by David Breskvar on 22/10/15.
+//  Copyright © 2015 David Breskvar. All rights reserved.
+//
 
-import UIKit
+import Foundation
 
-class Task {
+class Movie {
     var name: String
     var added = NSDate()
     var changed = NSDate()
@@ -37,12 +43,7 @@ class Task {
     convenience init(name: String) {
         self.init(name: name, status: Status.CONSIDERED, priority: Priority.MEDIUM)
     }
-    
-    
-}
 
-enum Status {
-    case SEEN, DOWNLOADED, CONSIDERED
 }
 
 enum Priority {

@@ -1,6 +1,7 @@
 //: iOS Development Lesson 2 HomeWork 1
 
 import UIKit
+import Foundation
 
 class Money {
     var currency : String
