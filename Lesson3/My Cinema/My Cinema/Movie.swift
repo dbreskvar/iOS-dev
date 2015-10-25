@@ -20,7 +20,7 @@ class Movie {
         }
     }
     
-    var priority: Priority {
+    var priority: String {
         didSet {
             self.changed = NSDate()
         }
@@ -34,18 +34,14 @@ class Movie {
         }
     }
     
-    init(name: String, status: Status, priority : Priority) {
+    init(name: String, status: Status, priority : String) {
         self.name = name
         self.priority = priority
         self.status = status
     }
     
     convenience init(name: String) {
-        self.init(name: name, status: Status.CONSIDERED, priority: Priority.MEDIUM)
+        self.init(name: name, status: Status.CONSIDERED, priority: "Medium")
     }
 
-}
-
-enum Priority {
-    case LOW, MEDIUM, HIGH
 }

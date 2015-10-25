@@ -15,20 +15,33 @@ class FirstViewController: UIViewController {
     @IBOutlet var convertedValue: UILabel!
     @IBOutlet var eurValue: UITextField!
     @IBOutlet var convertBtn: UIButton!
+    @IBOutlet var usdBtn: UIButton!
+    @IBOutlet var jpyBtn: UIButton!
+    @IBOutlet var gbpBtn: UIButton!
     
     @IBAction func usdConvert(sender: AnyObject) {
         currency = "USD"
         convertBtn.setTitle("Convert USD", forState: UIControlState.Normal)
+        //USD btn set selected, others set unselected
+        usdBtn.selected = true
+        jpyBtn.selected = false
+        gbpBtn.selected = false
     }
     
     @IBAction func jpyConvert(sender: AnyObject) {
         currency = "JPY"
         convertBtn.setTitle("Convert JPY", forState: UIControlState.Normal)
+        usdBtn.selected = false
+        jpyBtn.selected = true
+        gbpBtn.selected = false
     }
     
     @IBAction func gbpConvert(sender: AnyObject) {
         currency = "GBP"
         convertBtn.setTitle("Convert GBP", forState: UIControlState.Normal)
+        usdBtn.selected = false
+        jpyBtn.selected = false
+        gbpBtn.selected = true
     }
     
     

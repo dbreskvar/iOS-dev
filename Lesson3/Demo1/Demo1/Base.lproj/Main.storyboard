@@ -51,7 +51,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OLz-o1-Rz9">
                                 <rect key="frame" x="115" y="116" width="147" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gce-2Z-YXw">
                                 <rect key="frame" x="137" y="307" width="97" height="45"/>
@@ -67,6 +67,13 @@
                                     <action selector="gbpConvert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JGJ-u5-Wmq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uX-Vb-bAo">
+                                <rect key="frame" x="172" y="179" width="30" height="30"/>
+                                <state key="normal" title="JPY"/>
+                                <connections>
+                                    <action selector="jpyConvert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jMS-47-Sj6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -75,6 +82,9 @@
                         <outlet property="convertBtn" destination="Gce-2Z-YXw" id="Jjr-CX-cQQ"/>
                         <outlet property="convertedValue" destination="Edl-1u-5SY" id="AyJ-eS-1mK"/>
                         <outlet property="eurValue" destination="OLz-o1-Rz9" id="Zxp-VK-Dfe"/>
+                        <outlet property="gbpBtn" destination="YzD-fh-4BV" id="Dca-6e-7rA"/>
+                        <outlet property="jpyBtn" destination="5uX-Vb-bAo" id="aCB-iw-w6w"/>
+                        <outlet property="usdBtn" destination="Xj8-cM-FVE" id="718-Nz-In8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

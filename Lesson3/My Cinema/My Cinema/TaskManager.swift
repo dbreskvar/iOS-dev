@@ -9,6 +9,29 @@
 import Foundation
 
 class TaskManager {
-    var tasks : Array<Movie>? = []
+    static let manager = TaskManager()
+    lazy var tasks : [Movie] = []
+    lazy var taskNames : [String] = []
     
+    func saveTask(newTask : Movie) {
+        tasks.append(newTask)
+        taskNames.append(newTask.name)
+        NSUserDefaults.standardUserDefaults().setObject(taskNames, forKey: "MyTasks")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+}
+
+extension TaskManager {
+    
+    func getTasks(priority : String) -> [Movie] {
+        var priorityTasks : [Movie] = []
+        
+        for movie in tasks {
+            if movie.priority == priority {
+                priorityTasks.append(movie)
+            }
+        }
+        
+        return priorityTasks
+    }
 }

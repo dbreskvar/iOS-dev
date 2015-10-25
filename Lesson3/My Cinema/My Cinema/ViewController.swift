@@ -8,37 +8,53 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var taskName: UITextField!
     @IBOutlet var taskPriority: UITextField!
     @IBOutlet var taskDescription: UILabel!
     
-    var manager = TaskManager()
+    /* 
+        Instead of textField use Picker onClick
+    */
     
     @IBAction func addTask(sender: AnyObject) {
-        let name = taskName.text
-        if let name = name {
+        if let name = taskName.text, priorty = taskPriority.text {
             let task = Movie(name: name)
-            manager.tasks?.append(task)
-            taskDescription.text = "Movie: \(name) with priorty: MEDIUM"
-            print(manager.tasks?.count)
+            
+            taskDescription.text = "Movie: '\(name)' with priorty: '\(priorty)'"
+            
+            TaskManager.manager.saveTask(task)
+            
         } else {
             taskDescription.text = "Invalid text input!"
         }
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        taskName.delegate = self
+        taskPriority.delegate = self
+        let tasks = NSUserDefaults.standardUserDefaults().objectForKey("MyTasks")
+        
+        if let tasks = tasks as? [String] {
+            print(tasks.count)
+            taskDescription.text = tasks[tasks.count - 1]
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
+    func textFieldDidEndEditing(textField: UITextField) {
+        print("Text field has ended editing...")
+        
+        if (textField == self.taskPriority) {
+            print("Priority lost focus")
+        }
+    }
 
 }
 
