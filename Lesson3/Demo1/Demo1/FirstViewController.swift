@@ -11,6 +11,7 @@ import UIKit
 class FirstViewController: UIViewController {
     
     var currency : String?
+    var mMoney : Money = Money()
 
     @IBOutlet var convertedValue: UILabel!
     @IBOutlet var eurValue: UITextField!
@@ -20,7 +21,7 @@ class FirstViewController: UIViewController {
     @IBOutlet var gbpBtn: UIButton!
     
     @IBAction func usdConvert(sender: AnyObject) {
-        currency = "USD"
+        mMoney.currency = "USD"
         convertBtn.setTitle("Convert USD", forState: UIControlState.Normal)
         //USD btn set selected, others set unselected
         usdBtn.selected = true
@@ -29,7 +30,7 @@ class FirstViewController: UIViewController {
     }
     
     @IBAction func jpyConvert(sender: AnyObject) {
-        currency = "JPY"
+        mMoney.currency = "JPY"
         convertBtn.setTitle("Convert JPY", forState: UIControlState.Normal)
         usdBtn.selected = false
         jpyBtn.selected = true
@@ -37,7 +38,7 @@ class FirstViewController: UIViewController {
     }
     
     @IBAction func gbpConvert(sender: AnyObject) {
-        currency = "GBP"
+        mMoney.currency = "GBP"
         convertBtn.setTitle("Convert GBP", forState: UIControlState.Normal)
         usdBtn.selected = false
         jpyBtn.selected = false
@@ -47,9 +48,15 @@ class FirstViewController: UIViewController {
     
     @IBAction func convert(sender: AnyObject) {
         
-        var value = eurValue.text
+        let value = eurValue.text
+        
         
         if let value = Double(value!) {
+            let converted = Converter.converter.convert(value, currency: mMoney)
+            
+            convertedValue.text = "\(converted.convertedValue) \(converted.convertedCurrency.currency)"
+            
+            /*
             let dollarValue = getDollarValue("EUR", value: value)
             var returnValue : Double
             
@@ -87,7 +94,7 @@ class FirstViewController: UIViewController {
                 convertedValue.text = "\(stringValue) \(currency)"
             } else {
                 convertedValue.text = "Please select a currency to convert to"
-            }
+            }*/
         } else {
             convertedValue.text = "Please enter a value"
         }
