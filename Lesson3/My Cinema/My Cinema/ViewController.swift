@@ -20,12 +20,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func addTask(sender: AnyObject) {
         if let name = taskName.text, priorty = taskPriority.text {
-            let task = Movie(name: name)
-            
-            taskDescription.text = "Movie: '\(name)' with priorty: '\(priorty)'"
-            
-            TaskManager.manager.saveTask(task)
-            
+            if name.characters.count > 0 && priorty.characters.count > 0 {
+                let task = Movie(name: name)
+                
+                taskDescription.text = "Movie: '\(name)' with priorty: '\(priorty)'"
+                
+                TaskManager.manager.saveTask(task)
+            } else {
+                taskDescription.text = "Not enough information!"
+            }
         } else {
             taskDescription.text = "Invalid text input!"
         }

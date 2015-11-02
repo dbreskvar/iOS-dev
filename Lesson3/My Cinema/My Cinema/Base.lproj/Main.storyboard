@@ -17,27 +17,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QR5-4c-SVt">
-                                <rect key="frame" x="114" y="62" width="241" height="30"/>
+                                <rect key="frame" x="133" y="62" width="222" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WrX-ER-Ha8">
-                                <rect key="frame" x="114" y="100" width="241" height="30"/>
+                                <rect key="frame" x="133" y="100" width="222" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iev-eN-lsf">
-                                <rect key="frame" x="157" y="149" width="61" height="30"/>
+                                <rect key="frame" x="20" y="370" width="61" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Add task"/>
                                 <connections>
                                     <action selector="addTask:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XpY-b6-qKK"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Task name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSm-AI-Gta">
-                                <rect key="frame" x="20" y="62" width="93" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSm-AI-Gta">
+                                <rect key="frame" x="20" y="62" width="98" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -51,12 +51,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add task name and its priority" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ic0-eL-sNF">
-                                <rect key="frame" x="20" y="179" width="335" height="56"/>
+                                <rect key="frame" x="20" y="306" width="335" height="56"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbS-Zf-M9T">
+                                <rect key="frame" x="20" y="138" width="118" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Add movie image"/>
+                                <connections>
+                                    <segue destination="hey-Bf-wzM" kind="show" id="8eo-wi-fkt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -70,7 +78,62 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="439.5" y="386.5"/>
+            <point key="canvasLocation" x="-380.5" y="220.5"/>
+        </scene>
+        <!--Add Image View Controller-->
+        <scene sceneID="4HU-2Q-VgU">
+            <objects>
+                <viewController id="hey-Bf-wzM" customClass="AddImageViewController" customModule="My_Cinema" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cQG-HF-WgN"/>
+                        <viewControllerLayoutGuide type="bottom" id="whG-ZJ-dUs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L28-yG-tOc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0R0-xE-88c">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <animations/>
+                                <items>
+                                    <navigationItem title="Add Movie Image" id="uqR-S2-Aus">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="oYN-FT-ZlF">
+                                            <connections>
+                                                <action selector="addImage:" destination="hey-Bf-wzM" id="b46-dR-4EE"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="4V9-Sh-ybr">
+                                            <connections>
+                                                <action selector="doneAdding:" destination="hey-Bf-wzM" id="WMj-QP-OrT"/>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="T6i-Za-iCC"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="axp-zO-fj1">
+                                <rect key="frame" x="0.0" y="153" width="375" height="362"/>
+                                <animations/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Image size:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adn-vQ-KjW">
+                                <rect key="frame" x="20" y="72" width="335" height="73"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="addedImage" destination="axp-zO-fj1" id="XML-rN-fbE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k3e-02-pvO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="114.5" y="220.5"/>
         </scene>
     </scenes>
 </document>
