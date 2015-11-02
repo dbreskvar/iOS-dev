@@ -11,7 +11,7 @@ import CoreLocation
 
 class FirstViewController: UIViewController, CLLocationManagerDelegate {
     
-    var mMoney : Money = Money()
+    var mMoney : Money = Money(currency: "USD")
     
     var manager : CLLocationManager?
 
@@ -22,6 +22,36 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var jpyBtn: UIButton!
     @IBOutlet var gbpBtn: UIButton!
     @IBOutlet var locationText: UILabel!
+    @IBOutlet var currencySegment: UISegmentedControl!
+    
+    @IBAction func segmentSelected(sender: AnyObject) {
+        print("selected \(currencySegment.selectedSegmentIndex)")
+        changeCurrency()
+    }
+    
+    func changeCurrency() {
+        
+        let index = currencySegment.selectedSegmentIndex
+        
+        switch index {
+        case 0:
+            mMoney.currency = "USD"
+            convertBtn.setTitle("Convert USD", forState: UIControlState.Normal)
+        case 1:
+            mMoney.currency = "JPY"
+            convertBtn.setTitle("Convert JPY", forState: UIControlState.Normal)
+        case 2 :
+            mMoney.currency = "GBP"
+            convertBtn.setTitle("Convert GBP", forState: UIControlState.Normal)
+        case 3:
+            mMoney.currency = "EUR"
+            convertBtn.setTitle("Convert EUR", forState: UIControlState.Normal)
+        default:
+            mMoney.currency = "USD"
+            convertBtn.setTitle("Convert USD", forState: UIControlState.Normal)
+        }
+
+    }
     
     @IBAction func getLocation(sender: AnyObject) {
         //var mLocation = Location()
@@ -29,35 +59,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         getDetailedLocation()
     }
     
-    @IBAction func usdConvert(sender: AnyObject) {
-        mMoney.currency = "USD"
-        convertBtn.setTitle("Convert USD", forState: UIControlState.Normal)
-        usdBtn.selected = true
-        jpyBtn.selected = false
-        gbpBtn.selected = false
-    }
-    
-    @IBAction func jpyConvert(sender: AnyObject) {
-        mMoney.currency = "JPY"
-        convertBtn.setTitle("Convert JPY", forState: UIControlState.Normal)
-        usdBtn.selected = false
-        jpyBtn.selected = true
-        gbpBtn.selected = false
-    }
-    
-    @IBAction func gbpConvert(sender: AnyObject) {
-        mMoney.currency = "GBP"
-        convertBtn.setTitle("Convert GBP", forState: UIControlState.Normal)
-        usdBtn.selected = false
-        jpyBtn.selected = false
-        gbpBtn.selected = true
-    }
-    
-    
     @IBAction func convert(sender: AnyObject) {
         
         let value = eurValue.text
-        
         
         if let value = Double(value!) {
             let converted = Converter.converter.convert(value, currency: mMoney)
@@ -74,6 +78,9 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
         manager!.delegate = self
         manager!.desiredAccuracy = kCLLocationAccuracyBest
         manager!.startUpdatingLocation()
+        
+        changeCurrency()
+        getDetailedLocation()
         
     }
     
@@ -95,10 +102,35 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
                     let pm = placemarks![0] as CLPlacemark
                     let locationString = pm.locality!
                     let country = pm.country!
-                    print("hmm: \(locationString), \(country)")
-                    self.locationText.text = locationString
+                    self.locationText.text = "\(locationString), \(country)"
+                    self.changeToCountryCurrency(country)
                 }
             })
+        }
+    }
+    
+    func changeToCountryCurrency(country : String) {
+        switch country {
+        case "United States":
+            mMoney.currency = "USD"
+            convertBtn.setTitle("Convert USD", forState: UIControlState.Normal)
+            currencySegment.selectedSegmentIndex = 0
+        case "Slovenia", "Spain", "Portugal", "France", "Germany", "Austria":
+            mMoney.currency = "EUR"
+            convertBtn.setTitle("Convert EUR", forState: UIControlState.Normal)
+            currencySegment.selectedSegmentIndex = 3
+        case "Japan":
+            mMoney.currency = "JPY"
+            convertBtn.setTitle("Convert JPY", forState: UIControlState.Normal)
+            currencySegment.selectedSegmentIndex = 1
+        case "United Kingdom":
+            mMoney.currency = "GBP"
+            convertBtn.setTitle("Convert GBP", forState: UIControlState.Normal)
+            currencySegment.selectedSegmentIndex = 2
+        default:
+            mMoney.currency = "USD"
+            convertBtn.setTitle("Convert USD", forState: UIControlState.Normal)
+            currencySegment.selectedSegmentIndex = 0
         }
     }
 }
