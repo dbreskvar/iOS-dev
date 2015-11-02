@@ -40,8 +40,20 @@ class Movie {
         self.status = status
     }
     
+    init(dictionary : [String : AnyObject]) {
+        self.name = dictionary["name"] as! String
+        self.added = dictionary["added"] as! NSDate
+        self.changed = dictionary["modified"] as! NSDate
+        self.status = Status(rawValue: dictionary["status"] as! UInt)!
+        self.priority = dictionary["priority"] as! String
+    }
+    
     convenience init(name: String) {
-        self.init(name: name, status: Status.CONSIDERED, priority: "Medium")
+        self.init(name: name, status: Status.Considered, priority: "Medium")
+    }
+    
+    func toDictionary() -> [String : AnyObject] {
+        return ["name" : self.name, "added" : self.added, "modified" : self.changed, "status" : self.status.toRawValue(), "priority" : self.priority]
     }
 
 }

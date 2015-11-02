@@ -34,12 +34,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //TODO fix this code for dictionary
+        
         taskName.delegate = self
         taskPriority.delegate = self
-        let tasks = NSUserDefaults.standardUserDefaults().objectForKey("MyTasks")
+        let tasks = NSUserDefaults.standardUserDefaults().objectForKey("MyTasks") //This will crash
         
         if let tasks = tasks as? [String] {
-            print(tasks.count)
             taskDescription.text = tasks[tasks.count - 1]
         }
     }

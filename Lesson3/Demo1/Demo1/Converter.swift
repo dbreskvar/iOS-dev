@@ -11,6 +11,8 @@ import Foundation
 class Converter {
     static let converter = Converter()
     
+    private init() {}
+    
     func convert(value : Double, currency : Money) -> (convertedValue : Double, convertedCurrency : Money) {
         switch currency.currency {
             case "EUR":
@@ -27,29 +29,4 @@ class Converter {
                 return (0.0, Money(currency: "Unsupported currency"))
         }
     }
-}
-
-class Money {
-    var currency : String
-    
-    init(currency : String) {
-        self.currency = currency.uppercaseString
-    }
-    
-    init() {
-        self.currency = "EUR"
-    }
-}
-
-extension Double {
-    var EUR : Double { return self}
-    var USD : Double { return self * 1.2 }
-    var JPY : Double { return self * 000 }
-    var GBP : Double { return self * 000 }
-    var CAD : Double { return self * 000 }
-    
-    func convert(value : Double, currency : Money) -> (convertedValue : Double, convertedCurrency : Money) {
-        return Converter.converter.convert(value, currency: currency)
-    }
-    
 }

@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, CLLocationManagerDelegate {
     
-    var currency : String?
     var mMoney : Money = Money()
+    
+    var manager : CLLocationManager?
 
     @IBOutlet var convertedValue: UILabel!
     @IBOutlet var eurValue: UITextField!
@@ -19,11 +21,17 @@ class FirstViewController: UIViewController {
     @IBOutlet var usdBtn: UIButton!
     @IBOutlet var jpyBtn: UIButton!
     @IBOutlet var gbpBtn: UIButton!
+    @IBOutlet var locationText: UILabel!
+    
+    @IBAction func getLocation(sender: AnyObject) {
+        //var mLocation = Location()
+        //mLocation.getDetailedLocation()
+        getDetailedLocation()
+    }
     
     @IBAction func usdConvert(sender: AnyObject) {
         mMoney.currency = "USD"
         convertBtn.setTitle("Convert USD", forState: UIControlState.Normal)
-        //USD btn set selected, others set unselected
         usdBtn.selected = true
         jpyBtn.selected = false
         gbpBtn.selected = false
@@ -53,92 +61,45 @@ class FirstViewController: UIViewController {
         
         if let value = Double(value!) {
             let converted = Converter.converter.convert(value, currency: mMoney)
-            
             convertedValue.text = "\(converted.convertedValue) \(converted.convertedCurrency.currency)"
-            
-            /*
-            let dollarValue = getDollarValue("EUR", value: value)
-            var returnValue : Double
-            
-            if let currency = currency {
-                switch currency {
-                case "EUR":
-                    returnValue = dollarValue * 0.87873
-                    break
-                case "GBP":
-                    returnValue = dollarValue * 0.64610
-                    break
-                case "JPY":
-                    returnValue = dollarValue * 118.887
-                    break
-                case "CHF":
-                    returnValue = dollarValue * 0.950958
-                    break
-                case "AUD":
-                    returnValue = dollarValue * 1.36483
-                    break
-                case "USD":
-                    returnValue = dollarValue
-                    break
-                case "CAD":
-                    returnValue = dollarValue * 0.77759
-                    break
-                default:
-                    returnValue = Double(eurValue.text!)!
-                    break
-                    
-                }
-                
-                let stringValue = NSString(format: "%.2f", returnValue)
-                
-                convertedValue.text = "\(stringValue) \(currency)"
-            } else {
-                convertedValue.text = "Please select a currency to convert to"
-            }*/
         } else {
             convertedValue.text = "Please enter a value"
         }
-        
-        
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        manager = CLLocationManager()
+        manager!.delegate = self
+        manager!.desiredAccuracy = kCLLocationAccuracyBest
+        manager!.startUpdatingLocation()
+        
     }
     
-    func getDollarValue(startCurrency : String, value : Double) -> Double {
-        var dollarValue : Double
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    }
+    
+    func getDetailedLocation() {
+        let mLocation = Location()
+        let loc = mLocation.mLocationManager.location
+        let geocoder : CLGeocoder = CLGeocoder()
         
-        switch startCurrency {
-        case "EUR":
-            dollarValue = value * 1.13836
-            break
-        case "GBP":
-            dollarValue = value * 1.54560
-            break
-        case "JPY":
-            dollarValue = value * 0.00841
-            break
-        case "CHF":
-            dollarValue = value * 1.05206
-            break
-        case "AUD":
-            dollarValue = value * 0.73282
-            break
-        case "CAD":
-            dollarValue = value * 1.28602
-            break
-        default:
-            dollarValue = value
-            break
-            
+        if let location = loc {
+            //let coordinate = location.coordinate
+            geocoder.reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
+                if error != nil {
+                    print("Error je")
+                }
+                if placemarks?.count > 0 {
+                    let pm = placemarks![0] as CLPlacemark
+                    let locationString = pm.locality!
+                    let country = pm.country!
+                    print("hmm: \(locationString), \(country)")
+                    self.locationText.text = locationString
+                }
+            })
         }
-        
-        return dollarValue
     }
-
-    
 }
 
