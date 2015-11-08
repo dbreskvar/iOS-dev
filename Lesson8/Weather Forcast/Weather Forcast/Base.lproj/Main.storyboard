@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Weather_Forcast" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="THn-8M-Sjt">
+                                <rect key="frame" x="16" y="28" width="343" height="165"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="165" id="y8a-H7-Ivr"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ky6-RQ-HeJ">
+                                <rect key="frame" x="16" y="229.5" width="77" height="75"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="77" id="Erp-Ek-jDI"/>
+                                    <constraint firstAttribute="height" constant="75" id="kBA-LZ-1Ya"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ljubljana, SI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUx-eX-TBi">
+                                <rect key="frame" x="16" y="201" width="343" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckk-7B-Cbj">
+                                <rect key="frame" x="101" y="229.5" width="258" height="75"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="wh2-Fo-AsW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ckk-7B-Cbj" firstAttribute="top" secondItem="iUx-eX-TBi" secondAttribute="bottom" constant="8" id="4Dv-Cf-2un"/>
+                            <constraint firstItem="ckk-7B-Cbj" firstAttribute="top" secondItem="iUx-eX-TBi" secondAttribute="bottom" constant="8" id="7bE-cD-84f"/>
+                            <constraint firstItem="iUx-eX-TBi" firstAttribute="top" secondItem="THn-8M-Sjt" secondAttribute="bottom" constant="8" id="H5W-vZ-wcJ"/>
+                            <constraint firstItem="THn-8M-Sjt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="J2V-B3-OGp"/>
+                            <constraint firstItem="ckk-7B-Cbj" firstAttribute="leading" secondItem="Ky6-RQ-HeJ" secondAttribute="trailing" constant="8" id="PsQ-QQ-EQG"/>
+                            <constraint firstItem="Ky6-RQ-HeJ" firstAttribute="top" secondItem="iUx-eX-TBi" secondAttribute="bottom" constant="8" id="SRe-4G-F5g"/>
+                            <constraint firstItem="THn-8M-Sjt" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="UXe-VF-q0v"/>
+                            <constraint firstItem="ckk-7B-Cbj" firstAttribute="leading" secondItem="Ky6-RQ-HeJ" secondAttribute="trailing" constant="8" id="aqE-pw-NF0"/>
+                            <constraint firstItem="THn-8M-Sjt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="cIZ-zE-YGw"/>
+                            <constraint firstItem="ckk-7B-Cbj" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="n5B-Nr-u1v"/>
+                            <constraint firstItem="iUx-eX-TBi" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="pmv-94-rHr"/>
+                            <constraint firstItem="iUx-eX-TBi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ueS-4o-aeV"/>
+                            <constraint firstItem="Ky6-RQ-HeJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="x5V-6n-yDj"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="446.5" y="394.5"/>
+        </scene>
+    </scenes>
+</document>

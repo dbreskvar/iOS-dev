@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="s7r-nz-huH">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Received messages-->
+        <scene sceneID="8iD-Un-Zxj">
+            <objects>
+                <viewController id="0tW-mD-duL" customClass="RecievedViewController" customModule="TabBar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="llK-fD-2v2"/>
+                        <viewControllerLayoutGuide type="bottom" id="1z2-DF-YtY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y2E-3D-n3D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" keyboardDismissMode="interactive" text="Heh" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tbb-8L-FTJ">
+                                <rect key="frame" x="20" y="28" width="335" height="142"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tbb-8L-FTJ" firstAttribute="top" secondItem="llK-fD-2v2" secondAttribute="bottom" constant="8" id="QJx-Bc-UuF"/>
+                            <constraint firstItem="Tbb-8L-FTJ" firstAttribute="leading" secondItem="y2E-3D-n3D" secondAttribute="leadingMargin" id="gSX-1n-3jp"/>
+                            <constraint firstItem="Tbb-8L-FTJ" firstAttribute="trailing" secondItem="y2E-3D-n3D" secondAttribute="trailingMargin" id="ldN-1z-d4N"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Received messages" id="i3t-Cj-yvd"/>
+                    <connections>
+                        <outlet property="displayTextView" destination="Tbb-8L-FTJ" id="IGj-IE-tqJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v0q-J2-e1Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="717.5" y="459.5"/>
+        </scene>
+        <!--Send message-->
+        <scene sceneID="Ocp-n7-63C">
+            <objects>
+                <viewController id="xG4-Fz-p7h" customClass="SendViewController" customModule="TabBar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s3g-DI-vMt"/>
+                        <viewControllerLayoutGuide type="bottom" id="4hz-v6-vEY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Eu1-jt-1cA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="1M0-PB-a9p">
+                                <rect key="frame" x="20" y="422" width="274" height="188"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" hint="Enter message"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obI-2p-4BG">
+                                <rect key="frame" x="302" y="494" width="53" height="44"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.35195452411637185" green="1" blue="0.15946740587199959" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveAction:" destination="xG4-Fz-p7h" eventType="touchUpInside" id="oeJ-li-20r"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Qj-Pr-Ebm">
+                                <rect key="frame" x="134" y="320" width="221" height="88"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.96085569371727753" green="0.96085569371727753" blue="0.96085569371727753" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="1Qj-Pr-Ebm" firstAttribute="trailing" secondItem="Eu1-jt-1cA" secondAttribute="trailingMargin" id="11W-cC-SHk"/>
+                            <constraint firstItem="1Qj-Pr-Ebm" firstAttribute="leading" secondItem="Eu1-jt-1cA" secondAttribute="leadingMargin" constant="114" id="nSg-br-jkU"/>
+                            <constraint firstItem="1M0-PB-a9p" firstAttribute="top" secondItem="1Qj-Pr-Ebm" secondAttribute="bottom" constant="14" id="onL-BF-iPz"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Send message" id="w8d-g0-AUu"/>
+                    <connections>
+                        <outlet property="newMessage" destination="1Qj-Pr-Ebm" id="RHe-Kx-esn"/>
+                        <outlet property="sendTextView" destination="1M0-PB-a9p" id="jH0-jc-lVy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s1s-eU-aqc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="717.5" y="-317.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="K9j-wR-e2o">
+            <objects>
+                <tabBarController id="s7r-nz-huH" customClass="ViewController" customModule="TabBar" customModuleProvider="target" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="W3a-Oc-BZb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="xG4-Fz-p7h" kind="relationship" relationship="viewControllers" id="lQ9-rQ-ZQ1"/>
+                        <segue destination="0tW-mD-duL" kind="relationship" relationship="viewControllers" id="Hzt-dy-vBD"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cFR-G6-hmw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-102" y="130"/>
+        </scene>
+    </scenes>
+</document>

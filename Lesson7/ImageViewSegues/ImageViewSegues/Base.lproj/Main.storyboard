@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="t7Q-Sh-RBf">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <scenes>
+        <!--Images-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ImageViewSegues" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2015-10-18 10.52.29" translatesAutoresizingMaskIntoConstraints="NO" id="zNX-1S-blC">
+                                <rect key="frame" x="20" y="253" width="335" height="227"/>
+                                <animations/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2y9-0d-keu">
+                                <rect key="frame" x="20" y="72" width="335" height="174"/>
+                                <animations/>
+                                <state key="normal" image="2015-10-18 10.52.19"/>
+                                <connections>
+                                    <segue destination="Rem-MX-e3c" kind="show" identifier="Slika1" id="FtH-qP-oHP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wkr-nP-KAj">
+                                <rect key="frame" x="20" y="488" width="335" height="159"/>
+                                <animations/>
+                                <state key="normal" title="Button" image="2015-10-18 11.22.08"/>
+                                <connections>
+                                    <segue destination="Rem-MX-e3c" kind="show" identifier="Slika2" id="sbU-I2-Pq1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Images" id="H4o-1f-JYn"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="784.5" y="386.5"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="QTC-IL-dLL">
+            <objects>
+                <viewController id="Rem-MX-e3c" customClass="ImageViewController" customModule="ImageViewSegues" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="r8P-kW-qSD"/>
+                        <viewControllerLayoutGuide type="bottom" id="GDV-oO-yVh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kR7-K6-bIl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4yG-Bk-swq">
+                                <rect key="frame" x="20" y="170" width="335" height="301"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageView" destination="4yG-Bk-swq" id="ND3-ZY-rvX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7sm-Jf-iAS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1411.5" y="386.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6Py-r7-3IK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t7Q-Sh-RBf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HeM-aD-elb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="NUW-FY-uuR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nya-oi-tRT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304.5" y="386.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="2015-10-18 10.52.19" width="4160" height="2340"/>
+        <image name="2015-10-18 10.52.29" width="2340" height="4160"/>
+        <image name="2015-10-18 11.22.08" width="4160" height="2340"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="FtH-qP-oHP"/>
+    </inferredMetricsTieBreakers>
+</document>

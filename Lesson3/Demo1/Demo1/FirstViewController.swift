@@ -89,23 +89,30 @@ class FirstViewController: UIViewController, CLLocationManagerDelegate {
     
     func getDetailedLocation() {
         let mLocation = Location()
-        let loc = mLocation.mLocationManager.location
-        let geocoder : CLGeocoder = CLGeocoder()
         
-        if let location = loc {
-            //let coordinate = location.coordinate
-            geocoder.reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
-                if error != nil {
-                    print("Error je")
-                }
-                if placemarks?.count > 0 {
-                    let pm = placemarks![0] as CLPlacemark
-                    let locationString = pm.locality!
-                    let country = pm.country!
-                    self.locationText.text = "\(locationString), \(country)"
-                    self.changeToCountryCurrency(country)
-                }
-            })
+        if CLLocationManager.authorizationStatus() == .NotDetermined {
+            mLocation.mLocationManager.requestWhenInUseAuthorization()
+        } else if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+            mLocation.mLocationManager.startUpdatingLocation()
+            let loc = mLocation.mLocationManager.location
+            let geocoder : CLGeocoder = CLGeocoder()
+            
+            if let location = loc {
+                //let coordinate = location.coordinate
+                geocoder.reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
+                    if error != nil {
+                        print("Error je")
+                    }
+                    if placemarks?.count > 0 {
+                        let pm = placemarks![0] as CLPlacemark
+                        let locationString = pm.locality!
+                        let country = pm.country!
+                        self.locationText.text = "\(locationString), \(country)"
+                        self.changeToCountryCurrency(country)
+                        mLocation.mLocationManager.stopUpdatingLocation()
+                    }
+                })
+            }
         }
     }
     

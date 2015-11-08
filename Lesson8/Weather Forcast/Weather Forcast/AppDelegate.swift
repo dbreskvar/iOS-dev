@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  My Cinema
+//  Weather Forcast
 //
-//  Created by David Breskvar on 22/10/15.
+//  Created by David Breskvar on 05/11/15.
 //  Copyright © 2015 David Breskvar. All rights reserved.
 //
 
@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // Override point for customization after application launch.
         return true
     }
 

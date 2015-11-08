@@ -19,10 +19,11 @@ class Location : NSObject, CLLocationManagerDelegate {
         mLocationManager.delegate = self
         mLocationManager.desiredAccuracy = kCLLocationAccuracyBest
         mLocationManager.startUpdatingLocation()
+        mLocationManager.requestWhenInUseAuthorization()
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print (locations.first)
+        //print (locations.first)
     }
     
     func getDetailedLocation() -> String {
@@ -57,6 +58,9 @@ class Location : NSObject, CLLocationManagerDelegate {
         return ""
     }
     
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("failed")
+    }
     
     
 }
