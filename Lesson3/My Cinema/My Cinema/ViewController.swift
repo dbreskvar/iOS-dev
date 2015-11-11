@@ -18,7 +18,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         Instead of textField use Picker onClick
     */
     
+    @IBAction func saveTask(sender: AnyObject) {
+        saveMovie()
+    }
     @IBAction func addTask(sender: AnyObject) {
+        saveMovie()
+    }
+    
+    func saveMovie() {
         if let name = taskName.text, priorty = taskPriority.text {
             if name.characters.count > 0 && priorty.characters.count > 0 {
                 let task = Movie(name: name)
@@ -27,11 +34,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 
                 TaskManager.manager.saveTask(task)
             } else {
+                print("Count: \(name.characters.count)")
+                if name.characters.count == 0 {
+                    shakeAnimation(taskName)
+                } else if priorty.characters.count == 0 {
+                    shakeAnimation(taskPriority)
+                }
                 taskDescription.text = "Not enough information!"
             }
         } else {
             taskDescription.text = "Invalid text input!"
         }
+    }
+    
+    func clearEverything() {
+        taskName.text = ""
+        taskPriority.text = ""
+        taskDescription.text = "Inputs cleared!"
     }
     
     override func viewDidLoad() {
@@ -57,6 +76,43 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         if (textField == self.taskPriority) {
             print("Priority lost focus")
+        }
+    }
+    
+    func shakeAnimation(object : AnyObject) {
+        if let object = object as? UIView {
+            print("got here")
+            let center = object.frame.origin.x
+            print("shaken")
+            UIView.animateWithDuration(0.05, animations: { () -> Void in
+                object.frame.origin.x = object.frame.origin.x + 5
+                }, completion: { (success) -> Void in
+                    if success {
+                        UIView.animateWithDuration(0.05, animations: { () -> Void in
+                            object.frame.origin.x = object.frame.origin.x - 10
+                            }, completion: { (success) -> Void in
+                                if success {
+                                    UIView.animateWithDuration(0.05, animations: { () -> Void in
+                                        object.frame.origin.x = object.frame.origin.x + 10
+                                        }, completion: { (success) -> Void in
+                                            UIView.animateWithDuration(0.05, animations: { () -> Void in
+                                                object.frame.origin.x = object.frame.origin.x - 10
+                                                }, completion: { (success) -> Void in
+                                                    UIView.animateWithDuration(0.05, animations: { () -> Void in
+                                                        object.frame.origin.x = object.frame.origin.x + 10
+                                                        }, completion: { (success) -> Void in
+                                                            UIView.animateWithDuration(0.05, animations: { () -> Void in
+                                                                object.frame.origin.x = object.frame.origin.x - 10
+                                                                }, completion: { (success) -> Void in
+                                                                    object.frame.origin.x = center
+                                                            })
+                                                    })
+                                            })
+                                    })
+                                }
+                        })
+                    }
+            })
         }
     }
 

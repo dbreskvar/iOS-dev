@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		134DEAD61BD93DA30079844D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134DEAD51BD93DA30079844D /* Protocols.swift */; };
 		138922931BE2800F003018C8 /* DelegateExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138922921BE2800F003018C8 /* DelegateExample.swift */; };
+		13B24E661BF0CBB000C78E4A /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B24E651BF0CBB000C78E4A /* MovieTableViewCell.swift */; };
+		13B24E681BF0CE3C00C78E4A /* MovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B24E671BF0CE3C00C78E4A /* MovieTableViewController.swift */; };
 		13D46CFD1BE79DDC002EE987 /* AddImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D46CFC1BE79DDC002EE987 /* AddImageViewController.swift */; };
 		13D557A41BD8DF1C0058771C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D557A31BD8DF1C0058771C /* AppDelegate.swift */; };
 		13D557A61BD8DF1C0058771C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D557A51BD8DF1C0058771C /* ViewController.swift */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		134DEAD51BD93DA30079844D /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		138922921BE2800F003018C8 /* DelegateExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegateExample.swift; sourceTree = "<group>"; };
+		13B24E651BF0CBB000C78E4A /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		13B24E671BF0CE3C00C78E4A /* MovieTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewController.swift; sourceTree = "<group>"; };
 		13D46CFC1BE79DDC002EE987 /* AddImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddImageViewController.swift; sourceTree = "<group>"; };
 		13D557A01BD8DF1C0058771C /* My Cinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Cinema.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13D557A31BD8DF1C0058771C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +92,8 @@
 				13D46CFC1BE79DDC002EE987 /* AddImageViewController.swift */,
 				13D557A51BD8DF1C0058771C /* ViewController.swift */,
 				13D557A71BD8DF1C0058771C /* Main.storyboard */,
+				13B24E671BF0CE3C00C78E4A /* MovieTableViewController.swift */,
+				13B24E651BF0CBB000C78E4A /* MovieTableViewCell.swift */,
 				13D557AA1BD8DF1C0058771C /* Assets.xcassets */,
 				13D557AC1BD8DF1C0058771C /* LaunchScreen.storyboard */,
 				13D557AF1BD8DF1C0058771C /* Info.plist */,
@@ -168,8 +174,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13B24E681BF0CE3C00C78E4A /* MovieTableViewController.swift in Sources */,
 				138922931BE2800F003018C8 /* DelegateExample.swift in Sources */,
 				13D557A61BD8DF1C0058771C /* ViewController.swift in Sources */,
+				13B24E661BF0CBB000C78E4A /* MovieTableViewCell.swift in Sources */,
 				13D46CFD1BE79DDC002EE987 /* AddImageViewController.swift in Sources */,
 				13D557A41BD8DF1C0058771C /* AppDelegate.swift in Sources */,
 				13D557BA1BD8E08E0058771C /* TaskManager.swift in Sources */,

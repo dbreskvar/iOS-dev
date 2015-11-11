@@ -13,10 +13,7 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
     let imagePicker = UIImagePickerController()
     @IBOutlet var addedImage: UIImageView!
     
-    @IBAction func doneAdding(sender: AnyObject) {
-    }
-    
-    @IBAction func addImage(sender: AnyObject) {
+    @IBAction func addMovieImage(sender: AnyObject) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
         
@@ -27,6 +24,8 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             addedImage.contentMode = .ScaleAspectFit
             addedImage.image = pickedImage
+            
+            zoomInPicture()
         }
         
         dismissViewControllerAnimated(true, completion: nil)
@@ -45,6 +44,13 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
         // Dispose of any resources that can be recreated.
     }
     
+    func zoomInPicture() {
+        UIView.animateWithDuration(2.0, animations: { () -> Void in
+            self.addedImage.transform = CGAffineTransformMakeScale(2.0, 2.0)
+            }) { (success) -> Void in
+                self.addedImage.transform = CGAffineTransformMakeScale(1.0, 1.0)
+        }
+    }
 
     /*
     // MARK: - Navigation

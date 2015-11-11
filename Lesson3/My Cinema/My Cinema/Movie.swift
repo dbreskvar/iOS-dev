@@ -49,7 +49,7 @@ class Movie {
     }
     
     convenience init(name: String) {
-        self.init(name: name, status: Status.Considered, priority: "Medium")
+        self.init(name: name, status: Status.Considered, priority: "50")
     }
     
     func toDictionary() -> [String : AnyObject] {
