@@ -5,6 +5,45 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Movie Details View Controller-->
+        <scene sceneID="BEu-Mj-N8P">
+            <objects>
+                <viewController id="BMQ-U4-KjS" customClass="MovieDetailsViewController" customModule="My_Cinema" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QWD-55-8op"/>
+                        <viewControllerLayoutGuide type="bottom" id="eJH-US-ovI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rfm-Uy-76K">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdl-sn-3M8">
+                                <rect key="frame" x="114" y="28" width="92.5" height="20.5"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="p5S-bf-LO4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mdl-sn-3M8" firstAttribute="top" secondItem="QWD-55-8op" secondAttribute="bottom" constant="8" id="UOc-5m-64n"/>
+                            <constraint firstItem="mdl-sn-3M8" firstAttribute="centerX" secondItem="rfm-Uy-76K" secondAttribute="centerX" id="mvN-Tx-H3Z"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="movieName" destination="mdl-sn-3M8" id="sut-o7-lcR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i7I-PP-y65" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="88" y="-560"/>
+        </scene>
         <!--Movie-->
         <scene sceneID="tne-QT-ifu">
             <objects>

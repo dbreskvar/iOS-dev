@@ -26,18 +26,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func saveMovie() {
-        if let name = taskName.text, priorty = taskPriority.text {
-            if name.characters.count > 0 && priorty.characters.count > 0 {
-                let task = Movie(name: name)
+        if let name = taskName.text, priority = taskPriority.text {
+            if name.characters.count > 0 && priority.characters.count > 0 {
+                let task = Movie(name: name, priority: priority)
                 
-                taskDescription.text = "Movie: '\(name)' with priorty: '\(priorty)'"
+                taskDescription.text = "Movie: '\(name)' with priorty: '\(priority)'"
                 
                 TaskManager.manager.saveTask(task)
             } else {
                 print("Count: \(name.characters.count)")
                 if name.characters.count == 0 {
                     shakeAnimation(taskName)
-                } else if priorty.characters.count == 0 {
+                } else if priority.characters.count == 0 {
                     shakeAnimation(taskPriority)
                 }
                 taskDescription.text = "Not enough information!"

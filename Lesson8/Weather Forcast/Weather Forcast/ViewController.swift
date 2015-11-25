@@ -30,7 +30,7 @@ class ViewController: UIViewController {
             index = 0
         }
         
-        changeCity(index, image: customView.image!)
+        changeCity(index)
     }
     
     var cities = ["Ljubljana, SI", "London, UK", "Phoenix, AZ", "Vienna, AT", "Berlin, DE", "Paris, FR", "Athens, GR", "San Francisco, CA"]
@@ -62,11 +62,8 @@ class ViewController: UIViewController {
         
         task.resume()
         
-        let image = customView.image
-        if let image = image {
-            customView.setImageView(image, status: WeatherStatus.Sunny)
-            doCoolAnimations()
-        }
+        customView.setImageView(WeatherStatus.Sunny)
+        doCoolAnimations()
         
         
     }
@@ -95,11 +92,11 @@ class ViewController: UIViewController {
 
     }
     
-    func changeCity(i : Int, image : UIImageView) {
+    func changeCity(i : Int) {
         locationImg.image = UIImage(named: image_strings[i])
         locationText.text = cities[i]
         temperatureText.text = temperatures[i]
-        customView.setImageView(image, status: weathers[i])
+        customView.setImageView(weathers[i])
         doCoolAnimations()
     }
 

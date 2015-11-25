@@ -22,12 +22,18 @@ class MovieTableViewController: UITableViewController {
     
     func loadMovies() {
         //let photo = UIImage(named: "no_image_movie_icon")
-        let promo_movie1 = Movie(name: "Fired Up!")
-        let promo_movie2 = Movie(name: "Batman: The Dark Knight Rises")
-        let promo_movie3 = Movie(name: "James Bond: Spectre")
+        if TaskManager.manager.tasks.count == 0 {
+            let promo_movie1 = Movie(name: "Fired Up!")
+            let promo_movie2 = Movie(name: "Batman: The Dark Knight Rises")
+            let promo_movie3 = Movie(name: "James Bond: Spectre")
+            
+            //TODO add photo image to Movie property
+            movies += [promo_movie1, promo_movie2, promo_movie3]
+        } else {
+            movies = TaskManager.manager.tasks
+            self.tableView.reloadData()
+        }
         
-        //TODO add photo image to Movie property
-        movies += [promo_movie1, promo_movie2, promo_movie3]
     }
 
     override func didReceiveMemoryWarning() {

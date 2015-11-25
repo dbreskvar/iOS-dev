@@ -46,9 +46,10 @@ class AddImageViewController: UIViewController, UIImagePickerControllerDelegate,
     
     func zoomInPicture() {
         UIView.animateWithDuration(2.0, animations: { () -> Void in
-            self.addedImage.transform = CGAffineTransformMakeScale(2.0, 2.0)
+            //self.addedImage.transform = CGAffineTransformMakeScale(2.0, 2.0)
+            self.addedImage.transform = CGAffineTransformMakeRotation(CGFloat((360 * M_PI) / 180))
             }) { (success) -> Void in
-                self.addedImage.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                //self.addedImage.transform = CGAffineTransformMakeScale(1.0, 1.0)
         }
     }
 

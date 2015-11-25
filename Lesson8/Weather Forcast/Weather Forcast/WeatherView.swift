@@ -11,7 +11,7 @@ import UIKit
 class WeatherView: UIView {
     
     var status : String = "sunny"
-    var image : UIImageView?
+    private var image : UIImageView?
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -28,32 +28,34 @@ class WeatherView: UIView {
         return CGSize(width: 150, height: 150)
     }
     
-    func setImageView(image : UIImageView, status : WeatherStatus) {
-        switch status {
-        case .Cloudy:
-            image.image = UIImage(named: "cloudy")
-            break
-        case .Partly_cloudy:
-            image.image = UIImage(named: "partly_cloudy")
-            break
-        case .Rainy:
-            image.image = UIImage(named: "rainy")
-            break
-        case .Sunny:
-            image.image = UIImage(named: "sunny")
-            break
-        case .Thunderstorms:
-            image.image = UIImage(named: "thunderstorms")
-            break
-        case .Snowy:
-            image.image = UIImage(named: "snowy")
-            break
-        case .Showers:
-            image.image = UIImage(named: "showers")
-            break
-        case .Clear_night:
-            image.image = UIImage(named: "clear_night")
-            break
+    func setImageView(status : WeatherStatus) {
+        if let image = self.image {
+            switch status {
+            case .Cloudy:
+                image.image = UIImage(named: "cloudy")
+                break
+            case .Partly_cloudy:
+                image.image = UIImage(named: "partly_cloudy")
+                break
+            case .Rainy:
+                image.image = UIImage(named: "rainy")
+                break
+            case .Sunny:
+                image.image = UIImage(named: "sunny")
+                break
+            case .Thunderstorms:
+                image.image = UIImage(named: "thunderstorms")
+                break
+            case .Snowy:
+                image.image = UIImage(named: "snowy")
+                break
+            case .Showers:
+                image.image = UIImage(named: "showers")
+                break
+            case .Clear_night:
+                image.image = UIImage(named: "clear_night")
+                break
+            }
         }
     }
 }
