@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Threading" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZM6-nf-POX">
+                                <rect key="frame" x="16" y="52" width="288" height="2"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="2MP-DB-doz"/>
+                                </constraints>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDn-r3-9Ds">
+                                <rect key="frame" x="137" y="225" width="46" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="52G-eA-zDH"/>
+                                    <constraint firstAttribute="height" constant="30" id="ob4-7G-9Yy"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uXC-ox-Wes">
+                                <rect key="frame" x="142" y="274" width="37" height="37"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="q4S-Xp-TVv"/>
+                                    <constraint firstAttribute="width" constant="37" id="yNj-CR-kE0"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.88571662303664922" green="0.88571662303664922" blue="0.88571662303664922" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ZM6-nf-POX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="D6p-Y4-YLe"/>
+                            <constraint firstItem="ZM6-nf-POX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="32" id="H6B-5X-HFe"/>
+                            <constraint firstItem="pDn-r3-9Ds" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YR8-k4-EHe"/>
+                            <constraint firstItem="uXC-ox-Wes" firstAttribute="centerX" secondItem="pDn-r3-9Ds" secondAttribute="centerX" id="Z73-dw-QjC"/>
+                            <constraint firstItem="ZM6-nf-POX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="mPC-Q5-1hH"/>
+                            <constraint firstItem="uXC-ox-Wes" firstAttribute="top" secondItem="pDn-r3-9Ds" secondAttribute="bottom" constant="19" id="mQF-o4-N0f"/>
+                            <constraint firstItem="pDn-r3-9Ds" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qqm-sU-cSC"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="progressView" destination="ZM6-nf-POX" id="2r3-b3-iQw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="440" y="364"/>
+        </scene>
+    </scenes>
+</document>
