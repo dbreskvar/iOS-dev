@@ -31,7 +31,7 @@ protocol Geometry {
 }
 
 func printPravokotnik () {
-    var pravokotnik1 = Pravokotnik(x: 1.0, y: 10.1, width: 30.0, height: 25.0)
+    let pravokotnik1 = Pravokotnik(x: 1.0, y: 10.1, width: 30.0, height: 25.0)
     
     var pravokotnik2 = Pravokotnik(x: 5.0, y: 12.2, width: 12.9, height: 54.3)
     

@@ -83,7 +83,7 @@ class CityInfoViewController: UIViewController {
                         print("City: \(name!), \(country!) weather: \(mainWeather!) description: \(description!) temp: \(temp!) humidity: \(humidity!)% with ID: \(id!) and icon: \(icon!)")
                         dispatch_async(dispatch_get_main_queue(), {
                             if let name = name, country = country, weather = description, temperature = temp, humidity = humidity, winds = windSpeed {
-                                self.name.text = "\(name), \(country)"
+                                self.name.text = "\(name),\(country)"
                                 self.weatherDesc.text = weather
                                 self.temp.text = "\(temperature) °C"
                                 self.humidity.text = "\(humidity)%"

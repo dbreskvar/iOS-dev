@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class WeatherTableViewController: UITableViewController {
     
@@ -19,17 +20,17 @@ class WeatherTableViewController: UITableViewController {
         refreshControl = UIRefreshControl()
         refreshControl!.addTarget(self, action: "refreshData", forControlEvents: .ValueChanged)
         
-        let city1 = Weather(id: 2653822, name: "Cardiff, GB")
+        let city1 = Weather(id: 2653822, name: "Cardiff,GB")
         city1.temperature = 8.43
-        let city2 = Weather(id: 5391959, name: "San Francisco, US")
+        let city2 = Weather(id: 5391959, name: "San Francisco,US")
         city2.temperature = 26.7
-        let city3 = Weather(id: 2643743, name: "London, GB")
+        let city3 = Weather(id: 2643743, name: "London,GB")
         city3.temperature = 9.75
-        let city4 = Weather(id: 3196359, name: "Ljubljana, SI")
+        let city4 = Weather(id: 3196359, name: "Ljubljana,SI")
         city4.temperature = -1.74
-        let city5 = Weather(id: 5128581, name: "New York, US")
+        let city5 = Weather(id: 5128581, name: "New York,US")
         city5.temperature = 13.66
-        let city6 = Weather(id: 1273294, name: "Delhi, IN")
+        let city6 = Weather(id: 1273294, name: "Delhi,IN")
         
         helper.cities.append(city1)
         helper.cities.append(city2)
@@ -85,9 +86,10 @@ class WeatherTableViewController: UITableViewController {
     }
     
     func refreshData() {
-        updateCities(helper.cities)
-        refreshControl!.endRefreshing()
-        tableView.reloadData()
+        //updateCities(helper.cities)
+        getCitiesAlamo(helper.cities)
+        //refreshControl!.endRefreshing()
+        //tableView.reloadData()
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -101,13 +103,12 @@ class WeatherTableViewController: UITableViewController {
         }
     }
     
-    
-    func updateCities(cities : [Weather]) {
+    func getCitiesAlamo(cities : [Weather]) {
+        
         var cityName : String?
         var cityTemp : Double?
         var cityIcon : String?
         var cityID : Int?
-        
         var updatedCities : [Weather] = [Weather]()
         
         var ids : String = ""
@@ -119,31 +120,22 @@ class WeatherTableViewController: UITableViewController {
             }
         }
         
-        print("IDS: \(ids)")
-        
         var url : String = "http://api.openweathermap.org/data/2.5/group?id=\(ids)&units=metric&appid=\(APP_ID)"
         url = url.stringByReplacingOccurrencesOfString(" ", withString: "+")
         
-        let request = NSMutableURLRequest()
-        request.URL = NSURL(string: url)
-        request.HTTPMethod = "GET"
-        
-        let session = NSURLSession.sharedSession()
-        
-        let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
-        
-            if let data = data {
-                do {
-                    let object = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        Alamofire.request(.GET, url).responseJSON
+            { response in
+                
+                if let JSON = response.result.value {
                     
-                    if let objects = object["list"] as? [AnyObject] {
+                    if let objects = JSON["list"] as? [AnyObject] {
                         for var x = 0; x < objects.count; x++ {
                             //This will loop through every city saved in TableView
                             if let name = objects[x]["name"] as? String {
                                 cityName = name
                                 if let sys = objects[x]["sys"] as? [String : AnyObject] {
                                     if let country = sys["country"] as? String {
-                                        cityName = "\(cityName!), \(country)"
+                                        cityName = "\(cityName!),\(country)"
                                     }
                                 }
                             } else {
@@ -169,24 +161,25 @@ class WeatherTableViewController: UITableViewController {
                                 cityID = -1
                             }
                             //save all cities again here? Update data?
-                            var city : Weather = Weather(id: cityID!, name: cityName!)
+                            let city : Weather = Weather(id: cityID!, name: cityName!)
                             city.icon = cityIcon
                             city.temperature = cityTemp
                             updatedCities.append(city)
                         }
                         self.helper.cities = updatedCities
+                        
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.tableView.reloadData()
+                            self.refreshControl!.endRefreshing()
+                        })
+                        
                     }
-                } catch {
-                    print("Something went wrong retrieving the data")
+
                 }
             }
         
-        }
         
-        task.resume()
     }
-    
-    
     
     
     

@@ -61,7 +61,7 @@ class Manager : NSObject {
                             if let jName = response["name"] as? String {
                                 if let sys = response["sys"] as? [String : AnyObject] {
                                     if let jCountry = sys["country"] as? String {
-                                        name = "\(jName), \(jCountry)"
+                                        name = "\(jName),\(jCountry)"
                                     }
                                 }
                             } else {
